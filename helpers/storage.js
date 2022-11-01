@@ -5,10 +5,12 @@ function getItem(key = localStorageKey) {
     return
   }
 
-  const json = localStorage.getItem(localStorageKey)
-  let item
+  const json = localStorage.getItem(key)
+  let item = null
   if (json !== null) {
     item = JSON.parse(json)
+  } else {
+   setItem({}) 
   }
   return item
 }
