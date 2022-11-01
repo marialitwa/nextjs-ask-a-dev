@@ -1,6 +1,13 @@
 import Head from 'next/head'
+import useSWR from 'swr'
+import { fetcher } from '../helpers/api'
 
 function LandingPage() {
+  const { data, error } = useSWR('/api/questions', fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+
   return (
     <>
       <Head>
