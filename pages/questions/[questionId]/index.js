@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
-import { fetcher } from '../../../helpers/api'
+import { fetcher, sendAnswer } from '../../../helpers/api'
+import AnswerForm from '../../../components/AnswerForm'
 
 export default function Question() {
   const router = useRouter()
@@ -10,6 +11,7 @@ export default function Question() {
   const { data: question, error } = useSWR(
     `/api/questions/${questionId}`,
     fetcher,
+    { refreshInterval: 2000 },
   )
   if (error) return <div>failed to load</div>
   if (!question) return <div>loading...</div>
@@ -22,6 +24,7 @@ export default function Question() {
           return <li key={answer.id}>{answer.answer}</li>
         })}
       </ul>
+      <AnswerForm />
       <Link href="/">🏠 Back Home</Link>
     </>
   )
