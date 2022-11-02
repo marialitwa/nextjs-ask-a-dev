@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import useSWR from 'swr'
 import { fetcher } from '../helpers/api'
 
@@ -17,7 +18,13 @@ function LandingPage() {
         <h1>Ask a dev!</h1>
         <ul>
           {data.map((question) => {
-            return <li>{question.question}</li>
+            return (
+              <li key={question.id}>
+                <Link href={`/questions/${question.id}`}>
+                  {question.question}
+                </Link>
+              </li>
+            )
           })}
         </ul>
         <p>
