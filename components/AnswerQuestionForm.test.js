@@ -1,15 +1,12 @@
-import AnswerForm from './AnswerForm'
+import AnswerQuestionForm from './AnswerQuestionForm'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 
-describe('AnswerForm', () => {
-  it.todo('shows maxLength of characters')
-  it.todo('decreases number of characters on input and with the same value')
-
+describe('AnswerQuestionForm', () => {
   it('shows maxLength of characters', () => {
     //given
-    render(<AnswerForm />)
+    render(<AnswerQuestionForm />)
     //const expected = 500
 
     //when
@@ -21,7 +18,7 @@ describe('AnswerForm', () => {
 
   it('decreases number of characters on input and with the same value', async () => {
     //given
-    render(<AnswerForm />)
+    render(<AnswerQuestionForm />)
     //const expected = 500
 
     //when

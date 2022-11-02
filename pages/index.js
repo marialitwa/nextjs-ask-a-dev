@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import useSWR from 'swr'
-import { fetcher } from '../helpers/api'
+import AnswerQuestionForm from '../components/AnswerQuestionForm'
+import { fetcher, sendQuestion } from '../helpers/api'
 
 function LandingPage() {
   const { data, error } = useSWR('/api/questions', fetcher)
@@ -31,6 +32,12 @@ function LandingPage() {
           Feel free to browse or ask any question while your identity stays
           stealthy and hidden.
         </p>
+
+        <AnswerQuestionForm
+          labelText="question"
+          submitForm={sendQuestion}
+        />
+
         <aside className="ninja">{"Like a freakin' ninja!"}</aside>
       </section>
     </>

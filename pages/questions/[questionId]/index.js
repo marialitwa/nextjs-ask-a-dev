@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import { fetcher, sendAnswer } from '../../../helpers/api'
-import AnswerForm from '../../../components/AnswerForm'
+import AnswerQuestionForm from '../../../components/AnswerQuestionForm'
 
 export default function Question() {
   const router = useRouter()
@@ -24,7 +24,7 @@ export default function Question() {
           return <li key={answer.id}>{answer.answer}</li>
         })}
       </ul>
-      <AnswerForm />
+      <AnswerQuestionForm labelText="answer" />
       <Link href="/">🏠 Back Home</Link>
     </>
   )
