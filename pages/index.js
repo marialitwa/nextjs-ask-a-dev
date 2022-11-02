@@ -15,6 +15,11 @@ function LandingPage() {
       </Head>
       <section>
         <h1>Ask a dev!</h1>
+        <ul>
+          {data.map((question) => {
+            return <li>{question.question}</li>
+          })}
+        </ul>
         <p>
           Feel free to browse or ask any question while your identity stays
           stealthy and hidden.
